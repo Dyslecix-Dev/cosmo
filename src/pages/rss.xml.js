@@ -7,8 +7,7 @@ export async function GET(context) {
 
   return rss({
     title: "Cosmo",
-    // TODO: replace description
-    description: "A short description of what Cosmo is about.",
+    description: "A site built with Cosmo.",
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,

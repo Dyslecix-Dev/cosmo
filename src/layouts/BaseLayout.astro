@@ -1,0 +1,41 @@
+---
+import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
+
+import SEO from "@/components/SEO.astro";
+import "@/styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const { title, description, image, canonicalURL } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <SEO title={title} description={description} image={image} canonicalURL={canonicalURL} />
+    {/* WARNING: preload fonts sparingly: drop one if a single font covers your above-the-fold content. */}
+    <Font cssVariable="--font-space-mono" preload />
+    <Font cssVariable="--font-roboto-mono" preload />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="theme-color" content="#142e38" />
+    <meta name="generator" content={Astro.generator} />
+    <slot name="head" />
+    <!--
+      NOTE: View transitions. Remove this line to disable site-wide client-side
+      routing; pages will then use full browser navigation.
+    -->
+    <ClientRouter />
+  </head>
+  <body class="min-h-screen bg-white text-neutral-900 antialiased">
+    <slot />
+  </body>
+</html>

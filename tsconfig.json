@@ -5,8 +5,7 @@
   "compilerOptions": {
     "verbatimModuleSyntax": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "~/*": ["./*"]
+      "@/*": ["./src/*"]
     }
   }
 }
