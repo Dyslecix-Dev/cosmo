@@ -12,6 +12,7 @@ export default defineConfig({
   integrations: [mdx(), sitemap()],
 
   vite: {
+    // @ts-ignore
     plugins: [tailwindcss()]
   }
 });
