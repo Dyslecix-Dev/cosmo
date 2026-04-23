@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 // TODO: remove later (example usage)
 import { SEO } from "astro-seo";
 // TODO: Add to layout
@@ -13,6 +14,8 @@ const ogImage = `${siteUrl}/og-image.png`;
 
 <html lang="en">
   <head>
+    <Font cssVariable="--font-space-mono" preload />
+    <Font cssVariable="--font-roboto-mono" preload />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
@@ -39,12 +42,12 @@ const ogImage = `${siteUrl}/og-image.png`;
         image: ogImage,
       }}
       extend={{
-        // TODO: change icons and theme-color
+        // TODO: change icons
         link: [
           { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
           { rel: "icon", href: "/favicon.ico" },
         ],
-        meta: [{ name: "theme-color", content: "#ffffff" }],
+        meta: [{ name: "theme-color", content: "#142e38" }],
       }}
     />
   </head>
