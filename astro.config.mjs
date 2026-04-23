@@ -9,6 +9,9 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  // TODO: change site
+  site: 'https://yourdomain.com',
+
   integrations: [mdx(), sitemap()],
 
   vite: {
