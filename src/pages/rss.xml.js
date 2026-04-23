@@ -1,4 +1,4 @@
-import rss from '@astrojs/rss';
+import rss from "@astrojs/rss";
 // import { getCollection } from 'astro:content';
 
 export async function GET(context) {
@@ -6,17 +6,17 @@ export async function GET(context) {
   const posts = [];
 
   return rss({
-    title: 'Cosmo',
+    title: "Cosmo",
     // TODO: replace description
-    description: 'A short description of what Cosmo is about.',
+    description: "A short description of what Cosmo is about.",
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
       // TODO: update path to match routing
-      link: '/blog/' + post.id + '/',
+      link: `/blog/${post.id}/`,
     })),
-    customData: '<language>en-us</language>',
+    customData: "<language>en-us</language>",
   });
 }
