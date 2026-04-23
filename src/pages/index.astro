@@ -2,7 +2,7 @@
 // TODO: remove later (example usage)
 import { SEO } from "astro-seo";
 // TODO: Add to layout
-import "../styles/global.css";
+import "@/styles/global.css";
 
 const title = "Cosmo";
 // TODO: change description, siteUrl, and ogImage
@@ -12,45 +12,43 @@ const ogImage = `${siteUrl}/og-image.png`;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<SEO
-			title={title}
-			description={description}
-			openGraph={{
-				basic: {
-					title: title,
-					type: "website",
-					image: ogImage,
-				},
-				optional: {
-					description: description,
-					siteName: "Cosmo",
-				},
-			}}
-			twitter={{
-				// TODO: change twitter information
-				card: "summary_large_image",
-				creator: "@yourhandle",
-				title: title,
-				description: description,
-				image: ogImage,
-			}}
-			extend={{
-				// TODO: change icons and theme-color
-				link: [
-					{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-					{ rel: "icon", href: "/favicon.ico" },
-				],
-				meta: [
-					{ name: "theme-color", content: "#ffffff" },
-				],
-			}}
-		/>
-	</head>
-	<body>
-		<h1>Cosmo</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title: title,
+          type: "website",
+          image: ogImage,
+        },
+        optional: {
+          description: description,
+          siteName: "Cosmo",
+        },
+      }}
+      twitter={{
+        // TODO: change twitter information
+        card: "summary_large_image",
+        creator: "@yourhandle",
+        title: title,
+        description: description,
+        image: ogImage,
+      }}
+      extend={{
+        // TODO: change icons and theme-color
+        link: [
+          { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+          { rel: "icon", href: "/favicon.ico" },
+        ],
+        meta: [{ name: "theme-color", content: "#ffffff" }],
+      }}
+    />
+  </head>
+  <body>
+    <h1>Cosmo</h1>
+  </body>
 </html>
