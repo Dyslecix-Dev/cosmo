@@ -4,6 +4,8 @@ description: Define a new Astro content collection with a zod schema and render 
 order: 3
 ---
 
+import Callout from "@/components/callouts/Callout.astro";
+
 Cosmo ships with two example collections — `blog` and `docs` — both wired up in [src/content.config.ts](src/content.config.ts). Add your own by following the same pattern.
 
 ## 1. Define the schema
@@ -56,6 +58,10 @@ const { Content } = await render(entry);
 ```
 
 ## Deleting the example collections
+
+<Callout type="danger" title="This is destructive">
+  Deleting a collection removes all its entries and routes. Back up or commit your changes to git before proceeding.
+</Callout>
 
 If you don't need `blog` or `docs`, delete:
 
