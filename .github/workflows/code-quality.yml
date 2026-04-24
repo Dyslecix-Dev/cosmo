@@ -2,6 +2,7 @@ name: Code quality
 
 on:
   push:
+    branches: [main, staging]
   pull_request:
 
 jobs:
