@@ -95,7 +95,7 @@ This file + a pointer section in [CLAUDE.md](CLAUDE.md) so future conversations 
 - Card grid: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`.
 - Pagination controls at bottom (prev/next + page numbers).
 
-### [ ] 6. `feat: add blog detail page with TOC, reading time, prev/next, related`
+### [x] 6. `feat: add blog detail page with TOC, reading time, prev/next, related`
 - `src/pages/blog/[...slug].astro` rendering blog entries.
 - `src/layouts/BlogPost.astro` (mirrors `astro-blog-example`'s structure; Tailwind-styled).
 - **TOC:** from `render()` `headings`. Sticky sidebar on `lg:` breakpoint.
