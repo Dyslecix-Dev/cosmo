@@ -123,7 +123,7 @@ This file + a pointer section in [CLAUDE.md](CLAUDE.md) so future conversations 
 - Sections: hero (uses `placeholder-home-hero.png`), CTA, featured blog entries grid (latest 3 from `getCollection('blog')`, reuses `EntryCard.astro`).
 - Inline TODO at hero copy: `{/* TODO: replace hero copy and imagery for your project */}`.
 
-### [ ] 10. `feat: wire RSS feed to blog collection`
+### [x] 10. `feat: wire RSS feed to blog collection`
 - Update `src/pages/rss.xml.js`: replace `posts = []` with `await getCollection('blog')`, sort by `pubDate` desc, map to RSS items.
 
 ### [ ] 11. `docs: update README and CLAUDE.md for example scaffolding`
