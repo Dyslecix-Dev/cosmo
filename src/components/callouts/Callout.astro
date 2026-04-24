@@ -1,0 +1,42 @@
+---
+type Props = {
+  type?: "note" | "tip" | "warning" | "danger";
+  title?: string;
+};
+
+const { type = "note", title } = Astro.props;
+
+const styles: Record<NonNullable<Props["type"]>, { container: string; label: string; defaultTitle: string }> = {
+  note: {
+    container: "border-blue-500 bg-blue-500/10 text-blue-900",
+    label: "text-blue-700",
+    defaultTitle: "Note",
+  },
+  tip: {
+    container: "border-green-500 bg-green-500/10 text-green-900",
+    label: "text-green-700",
+    defaultTitle: "Tip",
+  },
+  warning: {
+    container: "border-amber-500 bg-amber-500/10 text-amber-900",
+    label: "text-amber-800",
+    defaultTitle: "Warning",
+  },
+  danger: {
+    container: "border-red-500 bg-red-500/10 text-red-900",
+    label: "text-red-700",
+    defaultTitle: "Danger",
+  },
+};
+
+const s = styles[type];
+const heading = title ?? s.defaultTitle;
+---
+
+{/* TODO: replace neutral semantic accents with brand tokens once defined */}
+<aside class:list={["my-6 border-l-4 rounded-r-md px-4 py-3", s.container]} role="note">
+  <p class:list={["font-semibold text-sm uppercase tracking-wide mb-1", s.label]}>{heading}</p>
+  <div class="text-sm leading-relaxed [&>p]:my-1">
+    <slot />
+  </div>
+</aside>

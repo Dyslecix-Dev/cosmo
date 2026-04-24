@@ -63,7 +63,7 @@ This file + a pointer section in [CLAUDE.md](CLAUDE.md) so future conversations 
 - Wire `placeholder-og-fallback.png` into `SEO.astro` as the OG image fallback.
 - Add inline TODO comments at every import site: `{/* TODO: replace with real imagery */}`.
 
-### [ ] 3. `feat: add blog collection schema and lorem-ipsum seed entries`
+### [x] 3. `feat: add blog collection schema and lorem-ipsum seed entries`
 - Update [src/content.config.ts](src/content.config.ts), add `blog`:
   ```ts
   blog: defineCollection({
@@ -84,7 +84,7 @@ This file + a pointer section in [CLAUDE.md](CLAUDE.md) so future conversations 
   - Use ~6-8 distinct tags total, sprinkled with overlap so taxonomy + related-entries pages are non-trivial.
   - All entries reference `placeholder-blog-hero.png` for `heroImage`.
 
-### [ ] 4. `feat: add MDX callout components`
+### [x] 4. `feat: add MDX callout components`
 - `src/components/callouts/Callout.astro`. Props: `type: "note" | "tip" | "warning" | "danger"`, optional `title`.
 - Tailwind-styled. Each type uses a neutral semantic accent (`blue-500`, `green-500`, `amber-500`, `red-500`) until brand tokens exist.
 - Demonstrate in at least one `.mdx` blog seed entry (amend the entry from commit 3, or modify in this commit).
