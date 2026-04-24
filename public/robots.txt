@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: change sitemap
+Sitemap: https://example.com/sitemap-index.xml

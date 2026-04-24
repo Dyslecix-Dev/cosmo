@@ -1,17 +1,23 @@
 ---
-
+import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout description="A minimal, use-case-agnostic Astro static site boilerplate.">
+  <main class="mx-auto max-w-2xl px-6 py-24">
+    <h1 class="text-4xl font-bold tracking-tight">Cosmo</h1>
+    <p class="mt-4 text-lg text-neutral-600">A minimal starting point for a blog, docs site, landing page, e-commerce storefront, or portfolio.</p>
+    <p class="mt-4 text-neutral-600">
+      Open <code class="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-sm">src/pages/index.astro</code> to start editing.
+    </p>
+
+    <section class="mt-12">
+      <h2 class="text-sm font-semibold uppercase tracking-widest text-neutral-500">What's next</h2>
+      <ul class="mt-4 space-y-2 text-neutral-800">
+        <li>→ Read the docs to add MDX, RSS, search, analytics, and more.</li>
+        <li>→ Replace the brand tokens in <code class="font-mono">src/styles/global.css</code>.</li>
+        <li>→ Set <code class="font-mono">site</code> in <code class="font-mono">astro.config.mjs</code>.</li>
+        <li>→ Edit the <a href="/docs/hello-world" class="underline hover:no-underline">hello-world</a> entry in the <code class="font-mono">docs</code> content collection at <code class="font-mono">src/content/docs/hello-world.md</code>.</li>
+      </ul>
+    </section>
+  </main>
+</BaseLayout>

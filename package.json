@@ -2,16 +2,38 @@
   "name": "cosmo",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@10.33.2",
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.0.0"
   },
   "scripts": {
+    "prepare": "lefthook install",
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "typecheck": "astro check",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write .",
+    "format": "biome format .",
+    "format:fix": "biome format --write .",
+    "check": "biome check .",
+    "check:fix": "biome check --write ."
   },
   "dependencies": {
-    "astro": "^6.1.9"
+    "@astrojs/mdx": "^5.0.4",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
+    "@tailwindcss/vite": "^4.2.4",
+    "astro": "^6.1.9",
+    "astro-seo": "^1.1.0",
+    "tailwindcss": "^4.2.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.8",
+    "@biomejs/biome": "2.4.13",
+    "@tailwindcss/typography": "^0.5.19",
+    "lefthook": "^2.1.6",
+    "typescript": "^5.9.3"
   }
 }
