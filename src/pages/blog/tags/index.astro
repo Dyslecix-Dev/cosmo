@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const entries = await getCollection("blog");
+const counts = new Map<string, number>();
+for (const entry of entries) {
+  for (const tag of entry.data.tags ?? []) {
+    counts.set(tag, (counts.get(tag) ?? 0) + 1);
+  }
+}
+
+const tags = Array.from(counts.entries()).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+---
+
+<BaseLayout title="All tags" description="Browse blog posts by tag.">
+  <main class="mx-auto max-w-4xl px-6 py-16">
+    <header class="mb-12">
+      <h1 class="text-4xl font-bold tracking-tight">Tags</h1>
+      <p class="mt-2 text-neutral-600">Browse posts by tag.</p>
+    </header>
+
+    <ul class="flex flex-wrap gap-3">
+      {
+        tags.map(([tag, count]) => (
+          <li>
+            <a
+              href={`/blog/tags/${tag}`}
+              class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-1.5 text-sm font-medium text-neutral-800 transition hover:border-neutral-300 hover:bg-neutral-50"
+            >
+              <span>{tag}</span>
+              <span class="rounded-full bg-neutral-100 px-2 py-0.5 text-xs text-neutral-600">{count}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</BaseLayout>

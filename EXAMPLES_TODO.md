@@ -103,7 +103,7 @@ This file + a pointer section in [CLAUDE.md](CLAUDE.md) so future conversations 
 - **Prev/next:** chronological by `pubDate`. Compute in `getStaticPaths`.
 - **Related:** helper in `src/lib/related-entries.ts` — up to 3 entries sharing ≥1 tag, sorted by tag-overlap count then date.
 
-### [ ] 7. `feat: add tag taxonomy pages`
+### [x] 7. `feat: add tag taxonomy pages`
 - `src/pages/blog/tags/[tag].astro` — `getStaticPaths` enumerates unique tags. Reuses `EntryCard.astro` from commit 5.
 - `src/pages/blog/tags/index.astro` — lists all tags with counts.
 
