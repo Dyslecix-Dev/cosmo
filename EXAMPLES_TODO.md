@@ -89,7 +89,7 @@ This file + a pointer section in [CLAUDE.md](CLAUDE.md) so future conversations 
 - Tailwind-styled. Each type uses a neutral semantic accent (`blue-500`, `green-500`, `amber-500`, `red-500`) until brand tokens exist.
 - Demonstrate in at least one `.mdx` blog seed entry (amend the entry from commit 3, or modify in this commit).
 
-### [ ] 5. `feat: add blog index page with card grid and pagination`
+### [x] 5. `feat: add blog index page with card grid and pagination`
 - `src/pages/blog/[...page].astro` using Astro's `paginate()`, page size 6.
 - Extract reusable `src/components/blog/EntryCard.astro` (hero image, title, description, formatted date, tag chips).
 - Card grid: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`.
