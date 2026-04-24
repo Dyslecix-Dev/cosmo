@@ -3,10 +3,9 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 /**
- * NOTE: example content collection. Delete or adapt for your use case:
- *  - blog:     src/content/blog, schema with publishedAt, tags, etc.
- *  - docs:     keep this one, add sidebar ordering
- *  - products: src/content/products, schema with price, sku, images
+ * NOTE: example content collections. Delete or adapt for your use case:
+ *  - blog:     chronological posts with tags + hero images
+ *  - docs:     evergreen guides with sibling ordering
  *
  * See https://docs.astro.build/en/guides/content-collections/
  */
@@ -20,4 +19,17 @@ const docs = defineCollection({
   }),
 });
 
-export const collections = { docs };
+const blog = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/blog" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      pubDate: z.coerce.date(),
+      updatedDate: z.coerce.date().optional(),
+      heroImage: z.optional(image()),
+      tags: z.array(z.string()).optional(),
+    }),
+});
+
+export const collections = { docs, blog };
