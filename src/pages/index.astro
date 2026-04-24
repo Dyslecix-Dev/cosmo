@@ -1,23 +1,47 @@
 ---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import heroImage from "@/assets/placeholder-home-hero.png";
+import EntryCard from "@/components/blog/EntryCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const featured = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 ---
 
 <BaseLayout description="A minimal, use-case-agnostic Astro static site boilerplate.">
-  <main class="mx-auto max-w-2xl px-6 py-24">
-    <h1 class="text-4xl font-bold tracking-tight">Cosmo</h1>
-    <p class="mt-4 text-lg text-neutral-600">A minimal starting point for a blog, docs site, landing page, e-commerce storefront, or portfolio.</p>
-    <p class="mt-4 text-neutral-600">
-      Open <code class="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-sm">src/pages/index.astro</code> to start editing.
-    </p>
+  <main>
+    {/* TODO: replace hero copy and imagery for your project */}
+    <section class="relative overflow-hidden">
+      {/* TODO: replace with real imagery */}
+      <Image src={heroImage} alt="" class="absolute inset-0 h-full w-full object-cover" widths={[960, 1920]} sizes="100vw" />
+      <div class="absolute inset-0 bg-neutral-900/60"></div>
+      <div class="relative mx-auto max-w-3xl px-6 py-32 text-center text-white">
+        <h1 class="text-5xl font-bold tracking-tight sm:text-6xl">Cosmo</h1>
+        <p class="mt-6 text-lg text-neutral-200 sm:text-xl">A minimal, use-case-agnostic Astro static site boilerplate — adapt it into a blog, docs site, landing page, storefront, or portfolio.</p>
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+          <a href="/docs/getting-started" class="rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-neutral-900 transition hover:bg-neutral-100">Get started</a>
+          <a href="/blog" class="rounded-md border border-white/40 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10">Read the blog</a>
+        </div>
+      </div>
+    </section>
 
-    <section class="mt-12">
-      <h2 class="text-sm font-semibold uppercase tracking-widest text-neutral-500">What's next</h2>
-      <ul class="mt-4 space-y-2 text-neutral-800">
-        <li>→ Read the docs to add MDX, RSS, search, analytics, and more.</li>
-        <li>→ Replace the brand tokens in <code class="font-mono">src/styles/global.css</code>.</li>
-        <li>→ Set <code class="font-mono">site</code> in <code class="font-mono">astro.config.mjs</code>.</li>
-        <li>→ Edit the <a href="/docs/hello-world" class="underline hover:no-underline">hello-world</a> entry in the <code class="font-mono">docs</code> content collection at <code class="font-mono">src/content/docs/hello-world.md</code>.</li>
-      </ul>
+    <section class="mx-auto max-w-5xl px-6 py-20 text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-neutral-900">Start building in minutes</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-neutral-600">Swap brand tokens, add a content collection, wire up RSS, and ship. Every example shipped with cosmo is meant to be renamed or deleted.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/docs/rebranding-via-tokens" class="rounded-md bg-neutral-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-neutral-800">Rebrand via tokens</a>
+        <a href="/docs/adding-a-content-collection" class="rounded-md border border-neutral-300 px-5 py-2.5 text-sm font-semibold text-neutral-900 transition hover:bg-neutral-100">Add a collection</a>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-6 pb-24">
+      <div class="flex items-end justify-between">
+        <h2 class="text-2xl font-bold tracking-tight text-neutral-900">Latest from the blog</h2>
+        <a href="/blog" class="text-sm font-semibold text-neutral-700 underline hover:no-underline">View all →</a>
+      </div>
+      <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {featured.map((entry) => <EntryCard entry={entry} />)}
+      </div>
     </section>
   </main>
 </BaseLayout>

@@ -107,7 +107,7 @@ This file + a pointer section in [CLAUDE.md](CLAUDE.md) so future conversations 
 - `src/pages/blog/tags/[tag].astro` — `getStaticPaths` enumerates unique tags. Reuses `EntryCard.astro` from commit 5.
 - `src/pages/blog/tags/index.astro` — lists all tags with counts.
 
-### [ ] 8. `feat: flesh out docs collection with cosmo setup guides`
+### [x] 8. `feat: flesh out docs collection with cosmo setup guides`
 - Replace placeholder docs with real guides under `src/content/docs/`:
   - `getting-started.md`
   - `rebranding-via-tokens.md`
@@ -118,7 +118,7 @@ This file + a pointer section in [CLAUDE.md](CLAUDE.md) so future conversations 
 - Update `src/pages/docs/[slug].astro` to add prev/next sibling nav (use `order` if present, else alphabetical).
 - Use `<Callout>` from commit 4 in at least 2 guides.
 
-### [ ] 9. `feat: add home page hero and CTA section with featured entries`
+### [x] 9. `feat: add home page hero and CTA section with featured entries`
 - Replace `src/pages/index.astro` content.
 - Sections: hero (uses `placeholder-home-hero.png`), CTA, featured blog entries grid (latest 3 from `getCollection('blog')`, reuses `EntryCard.astro`).
 - Inline TODO at hero copy: `{/* TODO: replace hero copy and imagery for your project */}`.
