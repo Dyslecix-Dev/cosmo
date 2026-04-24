@@ -14,7 +14,7 @@ const docs = defineCollection({
   schema: z.object({
     title: z.string().min(1),
     description: z.string().min(1).optional(),
-    order: z.number().default(0),
+    order: z.number().optional(),
     draft: z.boolean().default(false),
   }),
 });
