@@ -32,19 +32,19 @@ const { Content } = await render(entry);
   <main class="mx-auto max-w-2xl px-6 py-24">
     <h1 class="text-4xl font-bold tracking-tight">{entry.data.title}</h1>
     {entry.data.description && (
-      <p class="mt-3 text-brand-secondary">{entry.data.description}</p>
+      <p class="mt-3 text-brand-secondary dark:text-brand-tertiary">{entry.data.description}</p>
     )}
-    <div class="prose mt-8">
+    <div class="prose dark:prose-invert mt-8">
       <Content />
     </div>
 
     {(prev || next) && (
-      <nav class="mt-16 flex justify-between gap-4 border-t border-brand-tertiary/40 pt-8 text-sm">
+      <nav class="mt-16 flex justify-between gap-4 border-t border-brand-tertiary/40 dark:border-brand-secondary/40 pt-8 text-sm">
         <div>
           {prev && (
             <a href={`/docs/${prev.id}`} class="group block">
-              <span class="block text-xs uppercase tracking-wide text-brand-secondary">Previous</span>
-              <span class="mt-1 block font-medium text-brand-primary group-hover:underline">
+              <span class="block text-xs uppercase tracking-wide text-brand-secondary dark:text-brand-tertiary">Previous</span>
+              <span class="mt-1 block font-medium text-brand-primary dark:text-brand-quaternary group-hover:underline">
                 {prev.data.title}
               </span>
             </a>
@@ -53,8 +53,8 @@ const { Content } = await render(entry);
         <div class="text-right">
           {next && (
             <a href={`/docs/${next.id}`} class="group block">
-              <span class="block text-xs uppercase tracking-wide text-brand-secondary">Next</span>
-              <span class="mt-1 block font-medium text-brand-primary group-hover:underline">
+              <span class="block text-xs uppercase tracking-wide text-brand-secondary dark:text-brand-tertiary">Next</span>
+              <span class="mt-1 block font-medium text-brand-primary dark:text-brand-quaternary group-hover:underline">
                 {next.data.title}
               </span>
             </a>

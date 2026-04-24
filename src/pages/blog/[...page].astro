@@ -30,14 +30,14 @@ const sortedTags = Array.from(tags).sort();
     <div class="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
       <div>
         <h1 class="text-4xl font-bold tracking-tight">Blog</h1>
-        <p class="mt-2 text-brand-secondary">Page {page.currentPage} of {page.lastPage}</p>
+        <p class="mt-2 text-brand-secondary dark:text-brand-tertiary">Page {page.currentPage} of {page.lastPage}</p>
       </div>
       <div class="flex flex-wrap gap-2">
         {
           sortedTags.map((tag) => (
             <a
               href={`/blog/tags/${tag}`}
-              class="rounded-md border border-brand-tertiary/50 px-3 py-1 text-sm font-medium text-brand-primary hover:bg-brand-tertiary/15"
+              class="rounded-md border border-brand-tertiary/50 dark:border-brand-secondary/50 px-3 py-1 text-sm font-medium text-brand-primary dark:text-brand-quaternary hover:bg-brand-tertiary/15 dark:hover:bg-brand-secondary/15"
             >
               {tag}
             </a>
@@ -59,7 +59,7 @@ const sortedTags = Array.from(tags).sort();
     <nav class="mt-12 flex items-center justify-between" aria-label="Pagination">
       <a
         href={page.url.prev}
-        class:list={["rounded-md border border-brand-tertiary/50 px-4 py-2 text-sm font-medium", page.url.prev ? "text-brand-primary hover:bg-brand-tertiary/15" : "pointer-events-none text-brand-secondary/50"]}
+        class:list={["rounded-md border border-brand-tertiary/50 dark:border-brand-secondary/50 px-4 py-2 text-sm font-medium", page.url.prev ? "text-brand-primary dark:text-brand-quaternary hover:bg-brand-tertiary/15 dark:hover:bg-brand-secondary/15" : "pointer-events-none text-brand-secondary/50 dark:text-brand-tertiary/50"]}
         aria-disabled={!page.url.prev}
       >
         ← Previous
@@ -75,7 +75,7 @@ const sortedTags = Array.from(tags).sort();
                 <a
                   href={href}
                   aria-current={isCurrent ? "page" : undefined}
-                  class:list={["flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium", isCurrent ? "bg-brand-primary text-brand-quaternary" : "text-brand-primary hover:bg-brand-tertiary/25"]}
+                  class:list={["flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium", isCurrent ? "bg-brand-primary dark:bg-brand-quaternary text-brand-quaternary dark:text-brand-primary" : "text-brand-primary dark:text-brand-quaternary hover:bg-brand-tertiary/25 dark:hover:bg-brand-secondary/25"]}
                 >
                   {n}
                 </a>
@@ -87,7 +87,7 @@ const sortedTags = Array.from(tags).sort();
 
       <a
         href={page.url.next}
-        class:list={["rounded-md border border-brand-tertiary/50 px-4 py-2 text-sm font-medium", page.url.next ? "text-brand-primary hover:bg-brand-tertiary/15" : "pointer-events-none text-brand-secondary/50"]}
+        class:list={["rounded-md border border-brand-tertiary/50 dark:border-brand-secondary/50 px-4 py-2 text-sm font-medium", page.url.next ? "text-brand-primary dark:text-brand-quaternary hover:bg-brand-tertiary/15 dark:hover:bg-brand-secondary/15" : "pointer-events-none text-brand-secondary/50 dark:text-brand-tertiary/50"]}
         aria-disabled={!page.url.next}
       >
         Next →

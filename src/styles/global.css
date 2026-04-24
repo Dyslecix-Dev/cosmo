@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /*
  * Design tokens — edit these to rebrand.
  * Tailwind v4 exposes every token here as a utility automatically.

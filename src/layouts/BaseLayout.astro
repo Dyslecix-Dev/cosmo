@@ -35,8 +35,19 @@ const { title, description, image, canonicalURL } = Astro.props;
       routing; pages will then use full browser navigation.
     -->
     <ClientRouter />
+    <script is:inline>
+      function applyTheme() {
+        document.documentElement.classList.toggle(
+          "dark",
+          localStorage.theme === "dark" ||
+            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+        );
+      }
+      applyTheme();
+      document.addEventListener("astro:page-load", applyTheme);
+    </script>
   </head>
-  <body class="min-h-screen bg-brand-quaternary text-brand-primary antialiased">
+  <body class="min-h-screen bg-brand-quaternary dark:bg-brand-primary text-brand-primary dark:text-brand-quaternary antialiased">
     <Navbar />
     <slot />
   </body>
