@@ -14,14 +14,37 @@ interface Props {
 }
 
 const { page } = Astro.props;
+
+const allEntries = await getCollection("blog");
+const tags = new Set<string>();
+for (const entry of allEntries) {
+  for (const tag of entry.data.tags ?? []) {
+    tags.add(tag);
+  }
+}
+const sortedTags = Array.from(tags).sort();
 ---
 
 <BaseLayout title="Blog" description="Latest posts from the cosmo example blog.">
   <main class="mx-auto max-w-6xl px-6 py-16">
-    <header class="mb-12">
-      <h1 class="text-4xl font-bold tracking-tight">Blog</h1>
-      <p class="mt-2 text-neutral-600">Page {page.currentPage} of {page.lastPage}</p>
-    </header>
+    <div class="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+      <div>
+        <h1 class="text-4xl font-bold tracking-tight">Blog</h1>
+        <p class="mt-2 text-brand-secondary">Page {page.currentPage} of {page.lastPage}</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        {
+          sortedTags.map((tag) => (
+            <a
+              href={`/blog/tags/${tag}`}
+              class="rounded-md border border-brand-tertiary/50 px-3 py-1 text-sm font-medium text-brand-primary hover:bg-brand-tertiary/15"
+            >
+              {tag}
+            </a>
+          ))
+        }
+      </div>
+    </div>
 
     <ul class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       {
@@ -36,7 +59,7 @@ const { page } = Astro.props;
     <nav class="mt-12 flex items-center justify-between" aria-label="Pagination">
       <a
         href={page.url.prev}
-        class:list={["rounded-md border border-neutral-300 px-4 py-2 text-sm font-medium", page.url.prev ? "text-neutral-900 hover:bg-neutral-50" : "pointer-events-none text-neutral-400"]}
+        class:list={["rounded-md border border-brand-tertiary/50 px-4 py-2 text-sm font-medium", page.url.prev ? "text-brand-primary hover:bg-brand-tertiary/15" : "pointer-events-none text-brand-secondary/50"]}
         aria-disabled={!page.url.prev}
       >
         ← Previous
@@ -52,7 +75,7 @@ const { page } = Astro.props;
                 <a
                   href={href}
                   aria-current={isCurrent ? "page" : undefined}
-                  class:list={["flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium", isCurrent ? "bg-neutral-900 text-white" : "text-neutral-700 hover:bg-neutral-100"]}
+                  class:list={["flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium", isCurrent ? "bg-brand-primary text-brand-quaternary" : "text-brand-primary hover:bg-brand-tertiary/25"]}
                 >
                   {n}
                 </a>
@@ -64,7 +87,7 @@ const { page } = Astro.props;
 
       <a
         href={page.url.next}
-        class:list={["rounded-md border border-neutral-300 px-4 py-2 text-sm font-medium", page.url.next ? "text-neutral-900 hover:bg-neutral-50" : "pointer-events-none text-neutral-400"]}
+        class:list={["rounded-md border border-brand-tertiary/50 px-4 py-2 text-sm font-medium", page.url.next ? "text-brand-primary hover:bg-brand-tertiary/15" : "pointer-events-none text-brand-secondary/50"]}
         aria-disabled={!page.url.next}
       >
         Next →

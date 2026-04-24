@@ -16,7 +16,7 @@ const formattedDate = pubDate.toLocaleDateString("en-US", {
 });
 ---
 
-<article class="group flex flex-col overflow-hidden rounded-lg border border-neutral-200 bg-white transition hover:border-neutral-300 hover:shadow-md">
+<article class="group flex flex-col overflow-hidden rounded-lg border border-brand-tertiary/40 bg-brand-quaternary transition hover:border-brand-tertiary hover:shadow-md">
   <a href={`/blog/${entry.id}`} class="flex flex-col h-full">
     {
       heroImage && (
@@ -25,18 +25,18 @@ const formattedDate = pubDate.toLocaleDateString("en-US", {
       )
     }
     <div class="flex flex-1 flex-col p-5">
-      <time datetime={pubDate.toISOString()} class="text-xs uppercase tracking-widest text-neutral-500">
+      <time datetime={pubDate.toISOString()} class="text-xs uppercase tracking-widest text-brand-secondary">
         {formattedDate}
       </time>
-      <h3 class="mt-2 text-lg font-semibold tracking-tight text-neutral-900 group-hover:underline">
+      <h3 class="mt-2 text-lg font-semibold tracking-tight text-brand-primary group-hover:underline">
         {title}
       </h3>
-      <p class="mt-2 flex-1 text-sm text-neutral-600">{description}</p>
+      <p class="mt-2 flex-1 text-sm text-brand-secondary">{description}</p>
       {
         tags && tags.length > 0 && (
           <ul class="mt-4 flex flex-wrap gap-2">
             {tags.map((tag) => (
-              <li class="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium text-neutral-700">{tag}</li>
+              <li class="rounded-full bg-brand-tertiary/25 px-2.5 py-0.5 text-xs font-medium text-brand-primary">{tag}</li>
             ))}
           </ul>
         )

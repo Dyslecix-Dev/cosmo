@@ -17,7 +17,7 @@ const tags = Array.from(counts.entries()).sort((a, b) => b[1] - a[1] || a[0].loc
   <main class="mx-auto max-w-4xl px-6 py-16">
     <header class="mb-12">
       <h1 class="text-4xl font-bold tracking-tight">Tags</h1>
-      <p class="mt-2 text-neutral-600">Browse posts by tag.</p>
+      <p class="mt-2 text-brand-secondary">Browse posts by tag.</p>
     </header>
 
     <ul class="flex flex-wrap gap-3">
@@ -26,10 +26,10 @@ const tags = Array.from(counts.entries()).sort((a, b) => b[1] - a[1] || a[0].loc
           <li>
             <a
               href={`/blog/tags/${tag}`}
-              class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-1.5 text-sm font-medium text-neutral-800 transition hover:border-neutral-300 hover:bg-neutral-50"
+              class="inline-flex items-center gap-2 rounded-full border border-brand-tertiary/40 bg-brand-quaternary px-4 py-1.5 text-sm font-medium text-brand-primary transition hover:border-brand-tertiary hover:bg-brand-tertiary/15"
             >
               <span>{tag}</span>
-              <span class="rounded-full bg-neutral-100 px-2 py-0.5 text-xs text-neutral-600">{count}</span>
+              <span class="rounded-full bg-brand-tertiary/25 px-2 py-0.5 text-xs text-brand-primary">{count}</span>
             </a>
           </li>
         ))

@@ -127,6 +127,9 @@ This file + a pointer section in [CLAUDE.md](CLAUDE.md) so future conversations 
 - Update `src/pages/rss.xml.js`: replace `posts = []` with `await getCollection('blog')`, sort by `pubDate` desc, map to RSS items.
 
 ### [ ] 11. `docs: update README and CLAUDE.md for example scaffolding`
+<!-- NOTE: `danger` callout type is defined in Callout.astro but unused across all content.
+     Add a `<Callout type="danger">` example in an appropriate doc or blog entry — e.g. a
+     destructive-action warning in `adding-a-content-collection.mdx` or similar. -->
 - README: new section **"Example content shipped with cosmo"** listing all scaffolding paths and deletion/rename guidance.
 - CLAUDE.md: add the deferred visual-polish work to the "Known TODOs" list. Remove the in-progress pointer to `EXAMPLES_TODO.md` (this file).
 - **Do not auto-delete `EXAMPLES_TODO.md`** — wait for explicit user confirmation.
