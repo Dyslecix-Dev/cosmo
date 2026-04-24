@@ -51,10 +51,10 @@ Before each commit:
 
 Execute in order on the `feat/example-content` branch. Tick the box after each commit lands.
 
-### [ ] 1. `chore: add EXAMPLES_TODO.md tracking checklist and CLAUDE.md pointer`
+### [x] 1. `chore: add EXAMPLES_TODO.md tracking checklist and CLAUDE.md pointer`
 This file + a pointer section in [CLAUDE.md](CLAUDE.md) so future conversations discover the spec.
 
-### [ ] 2. `feat: generate solid-color placeholder hero images`
+### [x] 2. `feat: generate solid-color placeholder hero images`
 - Add `scripts/generate-placeholders.mjs` using `sharp` (add as devDep if not present).
 - Generate 3 PNGs into `src/assets/`:
   - `placeholder-home-hero.png` — 1920×1080, fill `#1f2937`

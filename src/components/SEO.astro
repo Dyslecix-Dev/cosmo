@@ -1,5 +1,7 @@
 ---
 import { SEO as AstroSEO } from "astro-seo";
+// TODO: replace with real imagery
+import ogFallback from "@/assets/placeholder-og-fallback.png";
 
 /**
  * Thin wrapper around astro-seo that centralizes our defaults.
@@ -28,7 +30,7 @@ const {
   titleTemplate = "%s | Cosmo",
   titleDefault = "Cosmo",
   description = "A site built with Cosmo.",
-  image = "/og-image-light.png",
+  image = ogFallback.src,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).toString(),
   siteName = "Cosmo",
   // TODO: replace with your brand's X/Twitter handle
