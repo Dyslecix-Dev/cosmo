@@ -139,7 +139,7 @@ const linkClass = (active: boolean) => [
     if (event.key === "Escape") closeAll();
   });
 
-  // Reset open state across client-side page transitions.
+  // NOTE: reset open state across client-side page transitions.
   document.addEventListener("astro:page-load", closeAll);
 
   document.addEventListener("click", (event) => {

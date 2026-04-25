@@ -5,8 +5,8 @@ export async function GET(context) {
   const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   return rss({
-    title: "Cosmo",
-    description: "A site built with Cosmo.",
+    title: "Your Site",
+    description: "A new site built with Cosmo.",
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,

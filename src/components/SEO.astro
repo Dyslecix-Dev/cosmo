@@ -27,13 +27,13 @@ interface Props {
 
 const {
   title,
-  titleTemplate = "%s | Cosmo",
-  titleDefault = "Cosmo",
-  description = "A site built with Cosmo.",
+  titleTemplate = "%s | Your Site",
+  titleDefault = "Your Site",
+  description = "A new site built with Cosmo.",
   image = ogFallback.src,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).toString(),
-  siteName = "Cosmo",
-  twitterCreator = "@yourhandle",
+  siteName = "Your Site",
+  twitterCreator,
   noindex = false,
   nofollow = false,
 } = Astro.props;
