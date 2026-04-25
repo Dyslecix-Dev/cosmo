@@ -11,9 +11,10 @@ interface Props {
   description?: string;
   image?: string;
   canonicalURL?: string;
+  noindex?: boolean;
 }
 
-const { title, description, image, canonicalURL } = Astro.props;
+const { title, description, image, canonicalURL, noindex } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,7 +22,7 @@ const { title, description, image, canonicalURL } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <SEO title={title} description={description} image={image} canonicalURL={canonicalURL} />
+    <SEO title={title} description={description} image={image} canonicalURL={canonicalURL} noindex={noindex} />
     {/* WARNING: preload fonts sparingly: drop one if a single font covers your above-the-fold content. */}
     <Font cssVariable="--font-space-mono" preload />
     <Font cssVariable="--font-roboto-mono" preload />
@@ -32,6 +33,12 @@ const { title, description, image, canonicalURL } = Astro.props;
     <meta name="theme-color" content="#f0f0f0" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#142e38" media="(prefers-color-scheme: dark)" />
     <meta name="generator" content={Astro.generator} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Your Site",
+      "url": Astro.site?.toString(),
+    })} />
     <slot name="head" />
     <!--
       NOTE: View transitions. Remove this line to disable site-wide client-side
