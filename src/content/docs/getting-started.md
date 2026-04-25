@@ -11,10 +11,10 @@ Cosmo is a minimal Astro starter. This guide walks through cloning the repo and 
 - Node 22 LTS or higher (see `.nvmrc`)
 - pnpm — cosmo uses `pnpm-lock.yaml`; do not substitute npm or yarn
 
-## Clone and install
+## Scaffold and install
 
 ```sh
-git clone https://github.com/Dyslecix-Dev/cosmo.git my-site
+pnpm create astro@latest -- --template Dyslecix-Dev/cosmo my-site
 cd my-site
 pnpm install
 ```

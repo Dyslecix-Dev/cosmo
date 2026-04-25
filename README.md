@@ -35,7 +35,7 @@ Live demo: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
 ## Quick start
 
 ```sh
-git clone https://github.com/Dyslecix-Dev/cosmo.git my-site
+pnpm create astro@latest -- --template Dyslecix-Dev/cosmo my-site
 cd my-site
 pnpm install
 pnpm dev
