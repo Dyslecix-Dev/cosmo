@@ -1,13 +1,13 @@
 {
   "name": "cosmo",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "packageManager": "pnpm@10.33.2",
   "engines": {
     "node": ">=22.0.0"
   },
   "scripts": {
-    "prepare": "lefthook install",
+    "prepare": "lefthook install || true",
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",

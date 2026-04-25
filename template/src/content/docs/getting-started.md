@@ -14,7 +14,7 @@ Cosmo is a minimal Astro starter. This guide walks through cloning the repo and 
 ## Scaffold and install
 
 ```sh
-pnpm create astro@latest -- --template Dyslecix-Dev/cosmo my-site
+pnpm create astro@latest -- --template Dyslecix-Dev/cosmo/template my-site
 cd my-site
 pnpm install
 ```
