@@ -10,9 +10,7 @@ const featured = (await getCollection("blog")).sort((a, b) => b.data.pubDate.val
 
 <BaseLayout description="A minimal, use-case-agnostic Astro static site boilerplate.">
   <main>
-    {/* TODO: replace hero copy and imagery for your project */}
     <section class="relative overflow-hidden">
-      {/* TODO: replace with real imagery */}
       <Image src={heroImage} alt="" class="absolute inset-0 h-full w-full object-cover" widths={[960, 1920]} sizes="100vw" />
       <div class="absolute inset-0 bg-brand-primary dark:bg-brand-quaternary"></div>
       <div class="relative mx-auto max-w-3xl px-6 py-32 text-center text-brand-quaternary dark:text-brand-primary">

@@ -1,6 +1,6 @@
 ---
 import { SEO as AstroSEO } from "astro-seo";
-// TODO: replace with real imagery
+
 import ogFallback from "@/assets/placeholder-og-fallback.png";
 
 /**
@@ -33,7 +33,6 @@ const {
   image = ogFallback.src,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).toString(),
   siteName = "Cosmo",
-  // TODO: replace with your brand's X/Twitter handle
   twitterCreator = "@yourhandle",
   noindex = false,
   nofollow = false,

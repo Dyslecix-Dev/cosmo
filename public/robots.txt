@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO: change sitemap
-Sitemap: https://example.com/sitemap-index.xml
+Sitemap: https://cosmo.dyslecix.dev/sitemap-index.xml

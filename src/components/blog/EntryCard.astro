@@ -16,14 +16,11 @@ const formattedDate = pubDate.toLocaleDateString("en-US", {
 });
 ---
 
-<article class="group flex flex-col overflow-hidden rounded-lg border border-brand-tertiary/40 dark:border-brand-secondary/40 bg-brand-quaternary dark:bg-brand-primary transition hover:border-brand-tertiary dark:hover:border-brand-secondary hover:shadow-md">
+<article
+  class="group flex flex-col overflow-hidden rounded-lg border border-brand-tertiary/40 dark:border-brand-secondary/40 bg-brand-quaternary dark:bg-brand-primary transition hover:border-brand-tertiary dark:hover:border-brand-secondary hover:shadow-md"
+>
   <a href={`/blog/${entry.id}`} class="flex flex-col h-full">
-    {
-      heroImage && (
-        // TODO: replace with real imagery
-        <Image src={heroImage} alt="" class="aspect-[16/9] w-full object-cover" widths={[400, 800]} sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw" />
-      )
-    }
+    {heroImage && <Image src={heroImage} alt="" class="aspect-video w-full object-cover" widths={[400, 800]} sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw" />}
     <div class="flex flex-1 flex-col p-5">
       <time datetime={pubDate.toISOString()} class="text-xs uppercase tracking-widest text-brand-secondary dark:text-brand-tertiary">
         {formattedDate}

@@ -21,8 +21,7 @@ export default defineConfig({
     },
   ],
 
-  // TODO: change site
-  site: "https://yourdomain.com",
+  site: "https://cosmo.dyslecix.dev",
 
   integrations: [mdx(), sitemap()],
 
