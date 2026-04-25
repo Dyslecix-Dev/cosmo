@@ -7,11 +7,11 @@ import heroImage from "@/assets/placeholder-home-hero.png";
 import EntryCard from "@/components/blog/EntryCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
-const featured = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+const featured = (await getCollection("blog", ({ data }) => !data.draft)).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 ---
 
 <BaseLayout description="A minimal, use-case-agnostic Astro static site boilerplate.">
-  <main>
+  <main id="main">
     <section class="relative overflow-hidden">
       <Image src={heroImage} alt="" class="absolute inset-0 h-full w-full object-cover" widths={[960, 1920]} sizes="100vw" />
       <div class="absolute inset-0 bg-brand-primary dark:bg-brand-quaternary"></div>

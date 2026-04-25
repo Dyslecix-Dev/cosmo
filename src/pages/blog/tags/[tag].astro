@@ -5,7 +5,7 @@ import EntryCard from "@/components/blog/EntryCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const entries = await getCollection("blog");
+  const entries = await getCollection("blog", ({ data }) => !data.draft);
   const tags = new Set<string>();
   for (const entry of entries) {
     for (const tag of entry.data.tags ?? []) {
@@ -31,7 +31,7 @@ const { tag, entries } = Astro.props;
 ---
 
 <BaseLayout title={`Posts tagged "${tag}"`} description={`Blog posts tagged with ${tag}.`}>
-  <main class="mx-auto max-w-6xl px-6 py-16">
+  <main id="main" class="mx-auto max-w-6xl px-6 py-16">
     <header class="mb-12">
       <p class="text-sm uppercase tracking-widest text-brand-secondary dark:text-brand-tertiary">Tag</p>
       <h1 class="mt-2 text-4xl font-bold tracking-tight">{tag}</h1>
