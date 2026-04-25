@@ -17,11 +17,12 @@ Cosmo centralizes SEO defaults in [src/components/SEO.astro](src/components/SEO.
 - [ ] Set `site` in [astro.config.mjs](astro.config.mjs) to your production URL
 - [ ] Replace `twitterCreator: "@yourhandle"` in `SEO.astro` with your handle (or remove it)
 - [ ] Update `siteName` and `titleDefault` defaults in `SEO.astro`
-- [ ] Replace `public/placeholder-og-fallback.png` with a real OG image (1200×630 recommended)
+- [ ] Replace `public/placeholder-og-fallback.png` with a real OG image (1200×630 recommended; see dimensions note below)
 - [ ] Replace `src/assets/placeholder-home-hero.png` and `placeholder-blog-hero.png`
 - [ ] Update sitemap URL in [public/robots.txt](public/robots.txt)
 - [ ] Confirm `@astrojs/sitemap` runs in your build (it's wired in `astro.config.mjs`)
 - [ ] Verify each page passes a meaningful `title` and `description` to `BaseLayout`
+- [ ] **Optional**: extend the auto-generated `WebSite` JSON-LD schema with page-specific schemas (e.g. `BlogPosting`) via the `<slot name="head">` in `BaseLayout`
 
 ## Per-page overrides
 
@@ -38,3 +39,24 @@ Pages override defaults via props on `BaseLayout`:
 <Callout type="tip">
   Set `noindex` on draft pages or anything you don't want crawled. The canonical URL is automatically omitted when `noindex` is true.
 </Callout>
+
+## Draft content
+
+Both the `blog` and `docs` content collections support a `draft` field. Mark entries with `draft: true` in the frontmatter to write without publishing:
+
+```mdx
+---
+title: "Work in progress"
+draft: true
+---
+```
+
+Drafts are automatically filtered from:
+
+- Blog and docs list pages
+- Pagination
+- RSS feeds
+- Sitemap (via built page filtering)
+- Tag taxonomy
+
+The rest of your SEO checklist applies to non-draft content only — drafts won't be indexed or served to users.

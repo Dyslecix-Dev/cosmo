@@ -19,6 +19,10 @@ Live demo: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
 - **Custom 404 page**
 - **View transitions** via Astro's `ClientRouter`
 - **Astro fonts** (`astro:assets` `Font` component) via the Fontsource provider — Space Mono + Roboto Mono
+- **Link prefetch** enabled by default for faster client-side navigation
+- **JSON-LD schema** (`WebSite`) auto-generated and customizable via slots
+- **Accessibility**: skip-to-main link, semantic `<time>` elements, `aria-current` nav indicators
+- **Draft support** on content collections — set `draft: true` to write without publishing
 - **Biome** for lint + format (one tool, no ESLint/Prettier)
 - **Lefthook** git hooks — biome on pre-commit, typecheck on pre-push
 - **GitHub Actions** — typecheck, build, and `biome ci` on `main` and `staging`
