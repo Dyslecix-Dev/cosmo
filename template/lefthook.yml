@@ -1,7 +1,6 @@
 pre-commit:
   commands:
     check:
-      root: template/
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,astro}"
       run: pnpm exec biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
       stage_fixed: true
@@ -9,5 +8,4 @@ pre-commit:
 pre-push:
   commands:
     typecheck:
-      root: template/
       run: pnpm typecheck
