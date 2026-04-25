@@ -29,7 +29,7 @@ Live demo: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
 
 ## Requirements
 
-- **Node 22+** (see [.nvmrc](.nvmrc))
+- **Node 22 LTS or higher** (see [.nvmrc](.nvmrc))
 - **pnpm** (the repo is pnpm-only; `pnpm-lock.yaml` is the source of truth)
 
 ## Quick start
@@ -122,7 +122,7 @@ Cosmo builds to fully static HTML in `./dist/` and runs on any static host. The 
 - **Install:** `pnpm install --frozen-lockfile`
 - **Build:** `pnpm build`
 - **Output:** `dist`
-- **Node:** `22`
+- **Node:** `22 LTS`
 
 Quick pointers per host:
 

@@ -6,7 +6,7 @@ order: 2
 
 import Callout from "@/components/callouts/Callout.astro";
 
-Cosmo uses Tailwind CSS v4, where every variable declared under `@theme` in [src/styles/global.css](src/styles/global.css) becomes a Tailwind utility automatically.
+Cosmo uses Tailwind CSS v4, where every variable declared under `@theme` in `src/styles/global.css` becomes a Tailwind utility automatically.
 
 ## How it works
 
@@ -31,11 +31,10 @@ Then use it as a utility anywhere:
 
 ## Where to start
 
-1. Open [src/styles/global.css](src/styles/global.css)
+1. Open `src/styles/global.css`
 2. Replace the placeholder color tokens with your brand palette
-3. Update the font tokens and the matching `<link rel="preload">` tags in `src/layouts/BaseLayout.astro`
-4. Swap the hardcoded `bg-white text-neutral-900` body classes in `BaseLayout.astro` for your brand tokens
+3. Swap fonts in two places: the `fonts` array in `astro.config.mjs` (provider, name, and `cssVariable`), and the matching `<Font cssVariable="..." preload />` tags in `src/layouts/BaseLayout.astro`
 
 <Callout type="warning" title="Don't preload too many fonts">
-  `BaseLayout.astro` preloads two fonts by default. If a single font covers above-the-fold content, drop one preload — extra preloads block render.
+  `BaseLayout.astro` preloads two fonts by default via Astro's `<Font>` component. If a single font covers above-the-fold content, drop one preload — extra preloads block render.
 </Callout>

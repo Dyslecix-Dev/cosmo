@@ -6,7 +6,7 @@ order: 3
 
 import Callout from "@/components/callouts/Callout.astro";
 
-Cosmo ships with two example collections — `blog` and `docs` — both wired up in [src/content.config.ts](src/content.config.ts). Add your own by following the same pattern.
+Cosmo ships with two example collections — `blog` and `docs` — both wired up in `src/content.config.ts`. Add your own by following the same pattern.
 
 ## 1. Define the schema
 
@@ -37,7 +37,7 @@ Create `src/content/projects/` and drop in `.md` or `.mdx` files with matching f
 
 ## 3. Render
 
-Create a route under `src/pages/`:
+Create a dynamic route at `src/pages/projects/[slug].astro`:
 
 ```astro
 ---
