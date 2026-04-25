@@ -36,9 +36,6 @@ const linkClass = (active: boolean) => [
       <li>
         <a href="/" aria-current={isHomeActive ? "page" : undefined} class:list={linkClass(isHomeActive)}>Home</a>
       </li>
-      <li>
-        <a href="/blog" aria-current={isBlogActive ? "page" : undefined} class:list={linkClass(isBlogActive)}>Blog</a>
-      </li>
 
       <li class="relative" data-dropdown>
         <button type="button" aria-expanded="false" aria-haspopup="true" aria-controls="nav-docs-menu" data-dropdown-toggle class:list={[...linkClass(isDocsActive), "inline-flex items-center gap-1"]}>
@@ -78,6 +75,11 @@ const linkClass = (active: boolean) => [
           }
         </div>
       </li>
+
+      <li>
+        <a href="/blog" aria-current={isBlogActive ? "page" : undefined} class:list={linkClass(isBlogActive)}>Blog</a>
+      </li>
+
       <li>
         <button
           type="button"
