@@ -1,5 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import logoWithIconDark from "@/assets/logo-with-icon-dark.png";
+import logoWithIconLight from "@/assets/logo-with-icon-light.png";
 
 const { pathname } = Astro.url;
 
@@ -28,8 +31,8 @@ const linkClass = (active: boolean) => [
 <header class="sticky top-0 z-50 w-full bg-brand-quaternary/80 dark:bg-brand-primary/80 backdrop-blur">
   <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3" aria-label="Primary">
     <a href="/" class="flex items-center" aria-label="Cosmo home">
-      <img src="/images/logo-with-icon-light.png" alt="Cosmo" width="1200" height="500" class="h-16 w-auto block dark:hidden" id="navbar-logo-light" />
-      <img src="/images/logo-with-icon-dark.png" alt="Cosmo" width="1200" height="500" class="h-16 w-auto hidden dark:block" id="navbar-logo-dark" />
+      <Image src={logoWithIconLight} alt="Cosmo" class="h-16 w-auto block dark:hidden" id="navbar-logo-light" />
+      <Image src={logoWithIconDark} alt="Cosmo" class="h-16 w-auto hidden dark:block" id="navbar-logo-dark" />
     </a>
 
     <ul class="flex items-center gap-1 sm:gap-2">

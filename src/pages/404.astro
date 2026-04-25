@@ -1,11 +1,14 @@
 ---
+import { Image } from "astro:assets";
+import iconDark from "@/assets/icon-dark.png";
+import iconLight from "@/assets/icon-light.png";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="404 — Page not found" description="The page you're looking for doesn't exist.">
   <main class="mx-auto flex min-h-[80vh] max-w-2xl flex-col items-center justify-center px-6 py-24 text-center">
-    <img src="/images/icon-light.png" alt="" width="500" height="500" class="h-40 w-auto sm:h-52 dark:hidden" />
-    <img src="/images/icon-dark.png" alt="" width="500" height="500" class="h-40 w-auto sm:h-52 hidden dark:block" />
+    <Image src={iconLight} alt="" class="h-40 w-auto sm:h-52 dark:hidden" />
+    <Image src={iconDark} alt="" class="h-40 w-auto sm:h-52 hidden dark:block" />
     <p class="mt-8 text-5xl font-bold tracking-tight text-brand-primary dark:text-brand-quaternary sm:text-6xl">404</p>
     <h1 class="mt-4 text-2xl font-bold tracking-tight text-brand-primary dark:text-brand-quaternary sm:text-3xl">Lost in space</h1>
     <p class="mt-4 text-lg text-brand-secondary dark:text-brand-tertiary">The page you're looking for has drifted out of orbit.</p>

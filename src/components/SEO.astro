@@ -1,8 +1,6 @@
 ---
 import { SEO as AstroSEO } from "astro-seo";
 
-import ogFallback from "@/assets/placeholder-og-fallback.png";
-
 /**
  * Thin wrapper around astro-seo that centralizes our defaults.
  * Pages pass minimal props; we translate them into astro-seo's prop shape.
@@ -30,7 +28,7 @@ const {
   titleTemplate = "%s | Your Site",
   titleDefault = "Your Site",
   description = "A new site built with Cosmo.",
-  image = ogFallback.src,
+  image = "/placeholder-og-fallback.png",
   canonicalURL = new URL(Astro.url.pathname, Astro.site).toString(),
   siteName = "Your Site",
   twitterCreator,
