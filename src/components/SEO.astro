@@ -25,14 +25,13 @@ interface Props {
 
 const {
   title,
-  titleTemplate = "%s | Cosmo",
-  titleDefault = "Cosmo",
-  description = "A site built with Cosmo.",
-  image = "/og-image-light.png",
+  titleTemplate = "%s | Your Site",
+  titleDefault = "Your Site",
+  description = "A new site built with Cosmo.",
+  image = "/placeholder-og-fallback.png",
   canonicalURL = new URL(Astro.url.pathname, Astro.site).toString(),
-  siteName = "Cosmo",
-  // TODO: replace with your brand's X/Twitter handle
-  twitterCreator = "@yourhandle",
+  siteName = "Your Site",
+  twitterCreator,
   noindex = false,
   nofollow = false,
 } = Astro.props;
