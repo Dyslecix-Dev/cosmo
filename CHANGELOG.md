@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-04-25
+
+### Changed
+- Moved template into `template/` subdirectory so `pnpm create astro --template Dyslecix-Dev/cosmo/template` ships only template files; meta-repo files (LICENSE, CHANGELOG, .github/, .vscode/) stay at the root and no longer leak to downstream users
+- Navbar adjusted for xs viewport with responsive layout improvements
+
+### Fixed
+- Astro install error caused by lefthook postinstall running before deps were available
+
 ## [0.1.0] - 2026-04-25
 
 ### Added
