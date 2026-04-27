@@ -2,7 +2,8 @@
 
 A minimal, use-case-agnostic [Astro](https://astro.build) static site boilerplate, distributed as a `create-astro` template.
 
-Live demo: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
+Live demo: [cosmo-example.dyslecix.dev](https://cosmo-example.dyslecix.dev)
+Full docs: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
 
 ## Scaffold a project
 

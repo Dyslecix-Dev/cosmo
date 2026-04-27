@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Removed bundled `docs` collection and `pages/docs/[slug].astro`; setup guides now live at [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev). The "Next Steps" cards and 404 page now link there directly.
+- Demo URL changed from `cosmo.dyslecix.dev` to `cosmo-example.dyslecix.dev`
+- Navbar docs dropdown removed; navbar now has Home, Blog, and theme toggle only
+
 ## [0.2.0] - 2026-04-25
 
 ### Changed

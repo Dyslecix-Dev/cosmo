@@ -26,7 +26,7 @@ export default defineConfig({
     },
   ],
 
-  site: "https://cosmo.dyslecix.dev",
+  site: "https://example.com",
 
   integrations: [mdx(), sitemap()],
 

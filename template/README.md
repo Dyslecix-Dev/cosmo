@@ -2,7 +2,8 @@
 
 A minimal, use-case-agnostic [Astro](https://astro.build) static site boilerplate. Scaffold it and ship a blog, docs site, landing page, storefront, or portfolio — without spending the first day wiring up SEO, content collections, and formatting.
 
-Live demo: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
+Live demo: [cosmo-example.dyslecix.dev](https://cosmo-example.dyslecix.dev)
+Full docs: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
 
 ## What's included
 
@@ -12,10 +13,10 @@ Live demo: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
 - **TypeScript** (strict) with `@/*` path alias for `src/*`
 - **MDX, RSS, and sitemap** integrations pre-wired
 - **`astro-seo` wrapper** with sensible defaults (OG, Twitter card, canonical URL)
-- **Content collections** with example `blog` and `docs` collections, dynamic routes, and tag taxonomy
+- **Content collections** with an example `blog` collection, dynamic routes, and tag taxonomy
 - **Blog presentation patterns** — paginated index, card grid, detail page with TOC, reading time, prev/next, related entries
 - **MDX callouts** (note/danger) for use inside content
-- **Sticky navbar** with animated docs dropdown and a class-based **dark mode** toggle (no FOUC)
+- **Sticky navbar** with a class-based **dark mode** toggle (no FOUC)
 - **Custom 404 page**
 - **View transitions** via Astro's `ClientRouter`
 - **Astro fonts** (`astro:assets` `Font` component) via the Fontsource provider — Space Mono + Roboto Mono
@@ -65,11 +66,11 @@ All commands run from the project root:
 ├── src/
 │   ├── assets/               # Bundled images (placeholder hero + OG fallback)
 │   ├── components/
-│   │   ├── Navbar.astro      # Sticky nav, docs dropdown, dark-mode toggle
+│   │   ├── Navbar.astro      # Sticky nav, dark-mode toggle
 │   │   ├── SEO.astro         # astro-seo wrapper with centralized defaults
 │   │   ├── blog/EntryCard.astro
 │   │   └── callouts/Callout.astro  # MDX note/danger callouts
-│   ├── content/              # Content collections (blog + docs)
+│   ├── content/              # Content collections (blog)
 │   ├── content.config.ts     # Collection schemas (zod)
 │   ├── layouts/
 │   │   ├── BaseLayout.astro  # <html> shell, fonts, SEO, ClientRouter
@@ -79,7 +80,6 @@ All commands run from the project root:
 │   │   ├── 404.astro
 │   │   ├── index.astro
 │   │   ├── blog/             # [...page], [...slug], tags/
-│   │   ├── docs/[slug].astro
 │   │   └── rss.xml.js        # Wired to the blog collection
 │   └── styles/global.css     # Tailwind + design tokens
 ├── astro.config.mjs
@@ -90,31 +90,21 @@ All commands run from the project root:
 
 ## Customizing your site
 
-The bundled `docs` collection ships comprehensive guides for the common adoption tasks — start there:
-
-- **[Getting started](src/content/docs/getting-started.md)** — clone, install, run.
-- **[Rebranding via tokens](src/content/docs/rebranding-via-tokens.mdx)** — swap colors, fonts, and spacing by editing `@theme` design tokens in `src/styles/global.css`.
-- **[Adding a content collection](src/content/docs/adding-a-content-collection.mdx)** — define a new collection with a zod schema and render it.
-- **[Wiring RSS](src/content/docs/wiring-rss.md)** — point the RSS feed at your collection.
-- **[SEO checklist](src/content/docs/seo-checklist.mdx)** — what to set in `astro.config.mjs`, `SEO.astro`, and `robots.txt` before you ship.
-- **[Deploying](src/content/docs/deploying.mdx)** — full setup for Cloudflare Pages, GitHub Pages, Netlify, and Vercel.
-
-Run `pnpm dev` and visit [/docs](http://localhost:4321/docs) to read them in-browser.
+The full documentation lives at [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev) — guides for getting started, rebranding via tokens, adding collections, wiring RSS, SEO, and deploying.
 
 The example `blog` collection (10 lorem-ipsum entries with tags) is there to demonstrate the index, detail, pagination, tag taxonomy, related-entries, and RSS pieces. Delete the seed entries and write your own — or strip the entire `blog/` collection if you don't need it.
 
 ## Content collections
 
-Two example collections ship out of the box:
+One example collection ships out of the box:
 
 - **`blog`** — chronological posts (`pubDate`, `description`, optional `heroImage` + `tags`). Routes: paginated index at `/blog`, detail at `/blog/[slug]`, and tag taxonomy under `/blog/tags/`.
-- **`docs`** — evergreen guides with sibling `order`. Route: `/docs/[slug]`.
 
-Both follow the same pattern — a zod schema in [src/content.config.ts](src/content.config.ts) plus pages that call `getCollection()`. Use them as templates for product catalogs, team pages, etc. See the [Astro content collections docs](https://docs.astro.build/en/guides/content-collections/).
+It follows the standard pattern — a zod schema in [src/content.config.ts](src/content.config.ts) plus pages that call `getCollection()`. Use it as a template for product catalogs, team pages, etc. See the [Astro content collections docs](https://docs.astro.build/en/guides/content-collections/).
 
 ## Deploying
 
-Cosmo builds to fully static HTML in `./dist/` and runs on any static host. The bundled deployment guide ([src/content/docs/deploying.mdx](src/content/docs/deploying.mdx)) covers the four most common targets. The shared build settings:
+Cosmo builds to fully static HTML in `./dist/` and runs on any static host. The shared build settings:
 
 - **Install:** `pnpm install --frozen-lockfile`
 - **Build:** `pnpm build`
@@ -124,11 +114,11 @@ Cosmo builds to fully static HTML in `./dist/` and runs on any static host. The 
 Quick pointers per host:
 
 - **Cloudflare Pages** — connect the Git repo, pick the **Astro** framework preset, and add `NODE_VERSION=22` to the build environment.
-- **GitHub Pages** — set **Settings → Pages → Source** to **GitHub Actions** and add the deploy workflow from the [deploying guide](src/content/docs/deploying.mdx). If you're publishing to a project page (`username.github.io/repo`), also set `base: "/repo"` in `astro.config.mjs`.
+- **GitHub Pages** — set **Settings → Pages → Source** to **GitHub Actions**. If you're publishing to a project page (`username.github.io/repo`), also set `base: "/repo"` in `astro.config.mjs`.
 - **Netlify** — import the repo and accept the defaults; Netlify auto-detects pnpm from `pnpm-lock.yaml`. Set `NODE_VERSION=22` under build environment.
 - **Vercel** — import the repo; the **Astro** preset is auto-detected and pnpm is picked up automatically. Confirm Node 22 under project settings.
 
-See [src/content/docs/deploying.mdx](src/content/docs/deploying.mdx) for the full step-by-step including a ready-to-paste GitHub Actions workflow and a `netlify.toml`.
+See [cosmo.dyslecix.dev/docs/deploying](https://cosmo.dyslecix.dev/docs/deploying) for the full step-by-step including a ready-to-paste GitHub Actions workflow and a `netlify.toml`.
 
 ## Tooling notes
 
