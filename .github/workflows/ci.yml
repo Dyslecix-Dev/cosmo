@@ -7,24 +7,54 @@ on:
     branches: [main, staging]
 
 jobs:
-  check:
+  sync-check:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: template
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          package_json_file: template/package.json
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: pnpm
-          cache-dependency-path: template/pnpm-lock.yaml
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Verify template variants are in sync
+        run: node scripts/sync-templates.mjs --check
+
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - pm: pnpm
+            dir: template-pnpm
+            install: pnpm install --frozen-lockfile
+            typecheck: pnpm typecheck
+            build: pnpm build
+          - pm: npm
+            dir: template-npm
+            install: npm ci
+            typecheck: npm run typecheck
+            build: npm run build
+          - pm: yarn
+            dir: template-yarn
+            install: yarn install --immutable
+            typecheck: yarn typecheck
+            build: yarn build
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enable corepack
+        run: corepack enable
+      - uses: pnpm/action-setup@v4
+        if: matrix.pm == 'pnpm'
+        with:
+          package_json_file: ${{ matrix.dir }}/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install
+        run: ${{ matrix.install }}
       - name: Typecheck
-        run: pnpm typecheck
+        run: ${{ matrix.typecheck }}
       - name: Build
-        run: pnpm build
+        run: ${{ matrix.build }}
