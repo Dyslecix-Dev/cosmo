@@ -35,7 +35,7 @@ Full docs: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
 ## Quick start
 
 ```sh
-yarn create astro --template Dyslecix-Dev/cosmo/template-yarn my-site
+yarn create astro --template DyslecixDev/cosmo/template-yarn my-site
 cd my-site
 yarn install
 yarn dev

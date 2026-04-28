@@ -35,7 +35,7 @@ Full docs: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
 ## Quick start
 
 ```sh
-npm create astro@latest -- --template Dyslecix-Dev/cosmo/template-npm my-site
+npm create astro@latest -- --template DyslecixDev/cosmo/template-npm my-site
 cd my-site
 npm install
 npm run dev

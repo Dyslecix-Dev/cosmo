@@ -12,21 +12,21 @@ Cosmo ships a separate variant per package manager. Pick the one you want — on
 **pnpm**
 
 ```sh
-pnpm create astro@latest -- --template Dyslecix-Dev/cosmo/template-pnpm my-site
+pnpm create astro@latest -- --template DyslecixDev/cosmo/template-pnpm my-site
 cd my-site && pnpm install && pnpm dev
 ```
 
 **npm**
 
 ```sh
-npm create astro@latest -- --template Dyslecix-Dev/cosmo/template-npm my-site
+npm create astro@latest -- --template DyslecixDev/cosmo/template-npm my-site
 cd my-site && npm install && npm run dev
 ```
 
 **Yarn 4**
 
 ```sh
-yarn create astro --template Dyslecix-Dev/cosmo/template-yarn my-site
+yarn create astro --template DyslecixDev/cosmo/template-yarn my-site
 cd my-site && yarn install && yarn dev
 ```
 

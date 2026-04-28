@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI now runs a sync-check job and a typecheck+build matrix across all three variants.
 
 ### Changed
-- **Breaking:** scaffold path changed from `Dyslecix-Dev/cosmo/template` to `Dyslecix-Dev/cosmo/template-pnpm` (pnpm), `template-npm` (npm), or `template-yarn` (yarn).
+- **Breaking:** scaffold path changed from `DyslecixDev/cosmo/template` to `DyslecixDev/cosmo/template-pnpm` (pnpm), `template-npm` (npm), or `template-yarn` (yarn).
 - Root `lefthook.yml` updated to proxy into `template-pnpm/` and run sync-check on pre-commit.
 - `vite` pinned as an explicit devDependency (`^7.3.2`) across all variants to prevent type conflicts in npm and yarn flat-hoist installs.
 - Removed bundled `docs` collection and `pages/docs/[slug].astro`; setup guides now live at [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev). The "Next Steps" cards and 404 page now link there directly.
@@ -24,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.2.0] - 2026-04-25
 
 ### Changed
-- Moved template into `template/` subdirectory so `pnpm create astro --template Dyslecix-Dev/cosmo/template` ships only template files; meta-repo files (LICENSE, CHANGELOG, .github/, .vscode/) stay at the root and no longer leak to downstream users
+- Moved template into `template/` subdirectory so `pnpm create astro --template DyslecixDev/cosmo/template` ships only template files; meta-repo files (LICENSE, CHANGELOG, .github/, .vscode/) stay at the root and no longer leak to downstream users
 - Navbar adjusted for xs viewport with responsive layout improvements
 
 ### Fixed
