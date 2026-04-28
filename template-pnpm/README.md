@@ -35,7 +35,7 @@ Full docs: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
 ## Quick start
 
 ```sh
-pnpm create astro@latest -- --template Dyslecix-Dev/cosmo/template my-site
+pnpm create astro@latest -- --template DyslecixDev/cosmo/template my-site
 cd my-site
 pnpm install
 pnpm dev

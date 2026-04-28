@@ -17,15 +17,15 @@ jobs:
           persist-credentials: false
       - uses: pnpm/action-setup@v4
         with:
-          package_json_file: template/package.json
+          package_json_file: template-pnpm/package.json
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
-          cache-dependency-path: template/pnpm-lock.yaml
+          cache-dependency-path: template-pnpm/pnpm-lock.yaml
       - name: Install
         run: pnpm install --frozen-lockfile
-        working-directory: template
+        working-directory: template-pnpm
       - name: Run Biome
         run: pnpm exec biome ci .
-        working-directory: template
+        working-directory: template-pnpm

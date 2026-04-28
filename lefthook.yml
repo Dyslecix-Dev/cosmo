@@ -1,13 +1,15 @@
 pre-commit:
   commands:
     check:
-      root: template/
+      root: template-pnpm/
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,astro}"
       run: pnpm exec biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
       stage_fixed: true
+    sync-templates:
+      run: node scripts/sync-templates.mjs --check
 
 pre-push:
   commands:
     typecheck:
-      root: template/
+      root: template-pnpm/
       run: pnpm typecheck
