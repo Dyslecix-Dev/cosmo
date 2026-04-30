@@ -10,10 +10,11 @@ interface Props {
   description?: string;
   image?: string;
   canonicalURL?: string;
+  ogType?: "website" | "article";
   noindex?: boolean;
 }
 
-const { title, description, image, canonicalURL, noindex } = Astro.props;
+const { title, description, image, canonicalURL, ogType, noindex } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,7 +22,7 @@ const { title, description, image, canonicalURL, noindex } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <SEO title={title} description={description} image={image} canonicalURL={canonicalURL} noindex={noindex} />
+    <SEO title={title} description={description} image={image} canonicalURL={canonicalURL} ogType={ogType} noindex={noindex} />
     {/* WARNING: preload fonts sparingly: drop one if a single font covers your above-the-fold content. */}
     <Font cssVariable="--font-space-mono" preload />
     <Font cssVariable="--font-roboto-mono" preload />
