@@ -30,7 +30,7 @@ export default defineConfig({
 
   site: "https://example.com",
 
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap({ filter: (page) => !page.includes("/404") })],
 
   vite: {
     plugins: [tailwindcss()],
