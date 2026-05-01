@@ -18,7 +18,6 @@ Full docs: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
 - **MDX callouts** (note/danger) for use inside content
 - **Sticky navbar** with a class-based **dark mode** toggle (no FOUC)
 - **Custom 404 page**
-- **View transitions** via Astro's `ClientRouter`
 - **Astro fonts** (`astro:assets` `Font` component) via the Fontsource provider — Space Mono + Roboto Mono
 - **Link prefetch** enabled by default for faster client-side navigation
 - **JSON-LD schema** (`WebSite`) auto-generated and customizable via slots
@@ -73,7 +72,7 @@ All commands run from the project root:
 │   ├── content/              # Content collections (blog)
 │   ├── content.config.ts     # Collection schemas (zod)
 │   ├── layouts/
-│   │   ├── BaseLayout.astro  # <html> shell, fonts, SEO, ClientRouter
+│   │   ├── BaseLayout.astro  # <html> shell, fonts, SEO
 │   │   └── BlogPost.astro    # TOC, reading time, prev/next, related
 │   ├── lib/                  # reading-time, related-entries
 │   ├── pages/                # File-based routes

@@ -18,6 +18,7 @@ interface Props {
   image?: string;
   canonicalURL?: string;
   siteName?: string;
+  ogType?: "website" | "article";
   twitterCreator?: string;
   noindex?: boolean;
   nofollow?: boolean;
@@ -31,6 +32,7 @@ const {
   image = "/placeholder-og-fallback.png",
   canonicalURL = new URL(Astro.url.pathname, Astro.site).toString(),
   siteName = "Your Site",
+  ogType = "website",
   twitterCreator,
   noindex = false,
   nofollow = false,
@@ -51,7 +53,7 @@ const resolvedTitle = title ?? titleDefault;
   openGraph={{
     basic: {
       title: resolvedTitle,
-      type: "website",
+      type: ogType,
       image: resolvedImage,
     },
     optional: {

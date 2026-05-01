@@ -151,9 +151,6 @@ const linkClass = (active: boolean) => [
     if (event.key === "Escape") closeAll();
   });
 
-  // NOTE: reset open state across client-side page transitions.
-  document.addEventListener("astro:page-load", closeAll);
-
   document.addEventListener("click", (event) => {
     const target = event.target as Element | null;
     if (!target?.closest("[data-theme-toggle]")) return;
