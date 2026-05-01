@@ -24,7 +24,6 @@ Full docs: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
 - **Accessibility**: skip-to-main link, semantic `<time>` elements, `aria-current` nav indicators
 - **Draft support** on content collections — set `draft: true` to write without publishing
 - **Biome** for lint + format (one tool, no ESLint/Prettier)
-- **Lefthook** git hooks — biome on pre-commit, typecheck on pre-push
 
 ## Requirements
 
@@ -51,7 +50,7 @@ All commands run from the project root:
 | `pnpm dev`          | Start the dev server at `localhost:4321`    |
 | `pnpm build`        | Typecheck and build the site to `./dist/`   |
 | `pnpm preview`      | Preview the built site locally              |
-| `pnpm typecheck`    | Run `astro check` (also runs on pre-push)   |
+| `pnpm typecheck`    | Run `astro check`                           |
 | `pnpm check`        | Lint + format with Biome (no writes)        |
 | `pnpm check:fix`    | Lint + format with Biome, applying fixes    |
 | `pnpm astro ...`    | Pass-through to the Astro CLI               |
@@ -83,7 +82,6 @@ All commands run from the project root:
 │   └── styles/global.css     # Tailwind + design tokens
 ├── astro.config.mjs
 ├── biome.json
-├── lefthook.yml
 └── tsconfig.json
 ```
 
@@ -121,5 +119,5 @@ See [cosmo.dyslecix.dev/docs/deploying](https://cosmo.dyslecix.dev/docs/deployin
 
 ## Tooling notes
 
-- **Biome** runs as a git pre-commit hook (auto-fixes staged files via lefthook). Run `pnpm check:fix` locally if you want to format ahead of committing.
-- **Typecheck** runs on pre-push — `astro check`, which type-checks `.astro` templates in addition to `.ts`.
+- **Biome** handles lint + format. Run `pnpm check:fix` to auto-fix staged work before committing.
+- **Typecheck** is `astro check`, which type-checks `.astro` templates in addition to `.ts`.
