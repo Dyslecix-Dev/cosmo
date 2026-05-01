@@ -1,7 +1,7 @@
 {
   "name": "cosmo",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "packageManager": "yarn@4.5.3",
   "engines": {
     "node": ">=22.0.0"
