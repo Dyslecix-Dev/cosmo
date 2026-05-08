@@ -87,7 +87,7 @@ All commands run from the project root:
 
 ## Customizing your site
 
-The full documentation lives at [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev) — guides for getting started, rebranding via tokens, adding collections, wiring RSS, SEO, and deploying.
+The full documentation lives at [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev) — guides for getting started, rebranding the theme, managing content collections, wiring RSS, SEO, deployment, recommended integrations, and design decisions.
 
 The example `blog` collection (10 lorem-ipsum entries with tags) is there to demonstrate the index, detail, pagination, tag taxonomy, related-entries, and RSS pieces. Delete the seed entries and write your own — or strip the entire `blog/` collection if you don't need it.
 
@@ -115,7 +115,7 @@ Quick pointers per host:
 - **Netlify** — import the repo and accept the defaults. Set `NODE_VERSION=22` under build environment.
 - **Vercel** — import the repo; the **Astro** preset is auto-detected. Confirm Node 22 under project settings.
 
-See [cosmo.dyslecix.dev/docs/deploying](https://cosmo.dyslecix.dev/docs/deploying) for the full step-by-step including a ready-to-paste GitHub Actions workflow and a `netlify.toml`.
+See [cosmo.dyslecix.dev/docs/deployment](https://cosmo.dyslecix.dev/docs/deployment) for the full step-by-step including a ready-to-paste GitHub Actions workflow and a `netlify.toml`.
 
 ## Tooling notes
 
