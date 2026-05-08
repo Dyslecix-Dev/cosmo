@@ -18,17 +18,19 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: "Space Mono",
       cssVariable: "--font-space-mono",
+      subsets: ["latin"],
     },
     {
       provider: fontProviders.fontsource(),
       name: "Roboto Mono",
       cssVariable: "--font-roboto-mono",
+      subsets: ["latin"],
     },
   ],
 
   site: "https://example.com",
 
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap({ filter: (page) => !page.includes("/404") })],
 
   vite: {
     plugins: [tailwindcss()],

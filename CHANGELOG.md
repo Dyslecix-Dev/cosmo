@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.1] - 2026-04-30
+
+### Changed
+- Removed `ClientRouter` / view transitions from `BaseLayout.astro`; navigation falls back to full-page loads (prefetch is still on).
+- Fonts now load only the `latin` subset to shrink payload.
+- Bumped package versions.
+- Removed bundled `lefthook.yml` from shipped templates; downstream users opt into a hook runner of their choice.
+- Removed bundled GitHub Actions workflows from shipped templates.
+
+### Fixed
+- Blog posts now set `ogType="article"` (was defaulting to `website`).
+- 404 page excluded from the generated sitemap.
+- Skip-to-content button raised above the navbar via higher `z-index`.
+
 ## [0.3.0] - 2026-04-28
 
 ### Added

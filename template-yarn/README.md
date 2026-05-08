@@ -18,14 +18,12 @@ Full docs: [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev)
 - **MDX callouts** (note/danger) for use inside content
 - **Sticky navbar** with a class-based **dark mode** toggle (no FOUC)
 - **Custom 404 page**
-- **View transitions** via Astro's `ClientRouter`
 - **Astro fonts** (`astro:assets` `Font` component) via the Fontsource provider — Space Mono + Roboto Mono
 - **Link prefetch** enabled by default for faster client-side navigation
 - **JSON-LD schema** (`WebSite`) auto-generated and customizable via slots
 - **Accessibility**: skip-to-main link, semantic `<time>` elements, `aria-current` nav indicators
 - **Draft support** on content collections — set `draft: true` to write without publishing
 - **Biome** for lint + format (one tool, no ESLint/Prettier)
-- **Lefthook** git hooks — biome on pre-commit, typecheck on pre-push
 
 ## Requirements
 
@@ -52,7 +50,7 @@ All commands run from the project root:
 | `yarn dev`         | Start the dev server at `localhost:4321`    |
 | `yarn build`       | Typecheck and build the site to `./dist/`   |
 | `yarn preview`     | Preview the built site locally              |
-| `yarn typecheck`   | Run `astro check` (also runs on pre-push)   |
+| `yarn typecheck`   | Run `astro check`                           |
 | `yarn check`       | Lint + format with Biome (no writes)        |
 | `yarn check:fix`   | Lint + format with Biome, applying fixes    |
 | `yarn astro ...`   | Pass-through to the Astro CLI               |
@@ -73,7 +71,7 @@ All commands run from the project root:
 │   ├── content/              # Content collections (blog)
 │   ├── content.config.ts     # Collection schemas (zod)
 │   ├── layouts/
-│   │   ├── BaseLayout.astro  # <html> shell, fonts, SEO, ClientRouter
+│   │   ├── BaseLayout.astro  # <html> shell, fonts, SEO
 │   │   └── BlogPost.astro    # TOC, reading time, prev/next, related
 │   ├── lib/                  # reading-time, related-entries
 │   ├── pages/                # File-based routes
@@ -84,13 +82,12 @@ All commands run from the project root:
 │   └── styles/global.css     # Tailwind + design tokens
 ├── astro.config.mjs
 ├── biome.json
-├── lefthook.yml
 └── tsconfig.json
 ```
 
 ## Customizing your site
 
-The full documentation lives at [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev) — guides for getting started, rebranding via tokens, adding collections, wiring RSS, SEO, and deploying.
+The full documentation lives at [cosmo.dyslecix.dev](https://cosmo.dyslecix.dev) — guides for getting started, rebranding the theme, managing content collections, wiring RSS, SEO, deployment, recommended integrations, and design decisions.
 
 The example `blog` collection (10 lorem-ipsum entries with tags) is there to demonstrate the index, detail, pagination, tag taxonomy, related-entries, and RSS pieces. Delete the seed entries and write your own — or strip the entire `blog/` collection if you don't need it.
 
@@ -118,9 +115,9 @@ Quick pointers per host:
 - **Netlify** — import the repo and accept the defaults; Netlify auto-detects yarn from `yarn.lock`. Set `NODE_VERSION=22` under build environment.
 - **Vercel** — import the repo; the **Astro** preset is auto-detected and yarn is picked up automatically. Confirm Node 22 under project settings.
 
-See [cosmo.dyslecix.dev/docs/deploying](https://cosmo.dyslecix.dev/docs/deploying) for the full step-by-step including a ready-to-paste GitHub Actions workflow and a `netlify.toml`.
+See [cosmo.dyslecix.dev/docs/deployment](https://cosmo.dyslecix.dev/docs/deployment) for the full step-by-step including a ready-to-paste GitHub Actions workflow and a `netlify.toml`.
 
 ## Tooling notes
 
-- **Biome** runs as a git pre-commit hook (auto-fixes staged files via lefthook). Run `yarn check:fix` locally if you want to format ahead of committing.
-- **Typecheck** runs on pre-push — `astro check`, which type-checks `.astro` templates in addition to `.ts`.
+- **Biome** handles lint + format. Run `yarn check:fix` to auto-fix staged work before committing.
+- **Typecheck** is `astro check`, which type-checks `.astro` templates in addition to `.ts`.
