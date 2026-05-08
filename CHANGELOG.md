@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed `ClientRouter` / view transitions from `BaseLayout.astro`; navigation falls back to full-page loads (prefetch is still on).
 - Fonts now load only the `latin` subset to shrink payload.
 - Bumped package versions.
+- Removed bundled `lefthook.yml` from shipped templates; downstream users opt into a hook runner of their choice.
+- Removed bundled GitHub Actions workflows from shipped templates.
 
 ### Fixed
 - Blog posts now set `ogType="article"` (was defaulting to `website`).
